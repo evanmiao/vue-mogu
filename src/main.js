@@ -6,15 +6,11 @@ import store from './store'
 import './assets'
 import './mock'
 
-import MintUI from 'mint-ui'
-import 'mint-ui/lib/style.css'
-import VueProgressBar from 'vue-progressbar'
+import VueLazyLoad from 'vue-lazyload'
 
-Vue.use(MintUI)
-Vue.use(VueProgressBar, {
-  color: 'rgb(143, 255, 199)',
-  failedColor: 'red',
-  height: '2px'
+Vue.use(VueLazyLoad, {
+  preLoad: 1,
+  loading: require('@/assets/img/common/placeholder.png')
 })
 
 Vue.config.productionTip = false
