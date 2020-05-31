@@ -6,17 +6,29 @@
 
 <script>
 import NavBar from '@/components/base/NavBar'
+import { getHomeMultidata } from '@/api/home'
 
 export default {
   name: 'Home',
-  data() {
-    return {
-    }
-  },
-  methods: {
-  },
   components: {
     NavBar
+  },
+  data() {
+    return {
+      banner: [],
+      recommend: []
+    }
+  },
+  created() {
+    this.getMultiData()
+  },
+  methods: {
+    getMultiData() {
+      getHomeMultidata().then(res => {
+        this.banner = res.data.data.banner
+        this.recommend = res.data.data.recommend
+      })
+    }
   }
 }
 </script>

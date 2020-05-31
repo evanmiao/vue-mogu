@@ -4,8 +4,8 @@ export default function request(options) {
   return new Promise((resolve, reject) => {
     // 1.创建 axios 实例
     const instance = axios.create({
-      baseURL = 'https://api.example.com',
-      timeout = 5000
+      baseURL: process.env.VUE_APP_BASE_API,
+      timeout: 5 * 1000
     })
 
     // 请求拦截器
