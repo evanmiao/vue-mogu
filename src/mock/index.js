@@ -11,8 +11,9 @@ const homeMultidata = () => {
       'banner|4': [
         {
           'img|+1': [
-            Random.image()
-          ]
+            Random.dataImage('750x350')
+          ],
+          'link': '#'
         }
       ],
       'recommend|4': [

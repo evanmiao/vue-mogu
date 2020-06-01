@@ -1,17 +1,20 @@
 <template>
   <div id="home">
     <nav-bar class="nav-bar"><div slot="center">蘑菇街</div></nav-bar>
+    <home-swiper :banner="banner" ref="homeSwiper"></home-swiper>
   </div>
 </template>
 
 <script>
 import NavBar from '@/components/base/NavBar'
+import HomeSwiper from './components/HomeSwiper'
 import { getHomeMultidata } from '@/api/home'
 
 export default {
   name: 'Home',
   components: {
-    NavBar
+    NavBar,
+    HomeSwiper
   },
   data() {
     return {
