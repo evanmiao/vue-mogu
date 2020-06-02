@@ -1,25 +1,31 @@
 <template>
   <div id="home">
-    <nav-bar class="nav-bar"><div slot="center">蘑菇街</div></nav-bar>
+    <nav-bar class="nav-bar"><div slot="center">首页</div></nav-bar>
     <home-swiper :banner="banner" ref="homeSwiper"></home-swiper>
+    <feature-view :feature="feature"></feature-view>
+    <recommend-view></recommend-view>
   </div>
 </template>
 
 <script>
 import NavBar from '@/components/base/NavBar'
 import HomeSwiper from './components/HomeSwiper'
+import FeatureView from './components/FeatureView'
+import RecommendView from './components/RecommendView'
 import { getHomeMultidata } from '@/api/home'
 
 export default {
   name: 'Home',
   components: {
     NavBar,
-    HomeSwiper
+    HomeSwiper,
+    FeatureView,
+    RecommendView
   },
   data() {
     return {
       banner: [],
-      recommend: []
+      feature: []
     }
   },
   created() {
@@ -29,7 +35,7 @@ export default {
     getMultiData() {
       getHomeMultidata().then(res => {
         this.banner = res.data.data.banner
-        this.recommend = res.data.data.recommend
+        this.feature = res.data.data.feature
       })
     }
   }
@@ -39,5 +45,5 @@ export default {
 <style lang="stylus" scoped>
   .nav-bar
     color #fff
-    background-color #ff8198
+    background-color $color-main
 </style>

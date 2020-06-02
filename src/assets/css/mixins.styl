@@ -1,0 +1,22 @@
+// 单行文本溢出省略号
+text-ellipsis()
+  overflow hidden
+  white-space nowrap
+  text-overflow ellipsis
+
+// 水平垂直居中
+flex-center()
+  display flex
+  align-items center
+  justify-content center
+
+// 扩大可点击区域
+extend-click()
+  position relative
+  &:before
+    content ''
+    position absolute
+    top: -10px
+    left: -10px
+    right: -10px
+    bottom: -10px

@@ -1,0 +1,52 @@
+@import './variables.styl'
+@import './mixins.styl'
+
+body
+  font 14px/1.15 "Helvetica Neue","Helvetica","PingFang SC","Hiragino Sans GB","STHeiti","Microsoft YaHei","微软雅黑","Arial","sans-serif","Droid Sans Fallback"
+  background $bg-color
+  color $text-color
+  user-select none  // 禁止用户鼠标在页面上选中文字/图片等
+  -webkit-tap-highlight-color transparent  // ios 点击高亮颜色，颜色用数值调节
+  -webkit-overflow-scrolling touch  // ios 顺畅滑动
+  touch-action manipulation  // IE11+ 禁止双击缩放，关于移动端300ms延迟：https//github.com/ftlabs/fastclick
+  -ms-touch-action manipulation  // IE10+ 禁止双击缩放
+
+a,img
+  -webkit-touch-callout none  // 禁止长按链接与图片弹出菜单
+
+a
+  color $text-color
+
+img
+  vertical-align middle
+
+// 公共类
+.al 
+  text-align left
+
+.ac 
+  text-align center
+
+.ar 
+  text-align right
+
+.fl 
+  float left
+
+.fr 
+  float right
+
+.clearfixa::after 
+  content " "
+  display block
+  clear both
+  width 0
+  height 0
+  font-size 0
+  visibility hidden
+
+.clearfix 
+  *zoom 1
+
+.hide 
+  display none
