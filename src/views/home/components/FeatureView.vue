@@ -26,8 +26,7 @@ export default {
 <style lang="stylus" scoped>
 .feature
   display flex
-  padding-bottom 30px
-  margin-top 10px
+  padding 20px 0
   border-bottom 10px solid #eee
   font-size $font-size-base
 
@@ -39,4 +38,5 @@ export default {
       width 80px
       height 80px
       margin-bottom 10px
+      border-radius 50%
 </style>

@@ -3,7 +3,7 @@ const Random = Mock.Random
 
 const baseUrl = process.env.VUE_APP_BASE_API
 
-const homeMultidata = () => {
+const homeMultiData = () => {
   return Mock.mock({
     code: '0000',
     msg: '请求成功',
@@ -21,4 +21,14 @@ const homeMultidata = () => {
   })
 }
 
-Mock.mock(`${baseUrl}/home/multidata`, 'get', homeMultidata)
+const homeGoodsData = () => {
+  return Mock.mock({
+    code: '0000',
+    msg: '请求成功',
+    data: {
+    }
+  })
+}
+
+Mock.mock(`${baseUrl}/home/multidata`, 'get', homeMultiData)
+Mock.mock(`${baseUrl}/home/goodsdata`, 'get', homeGoodsData)
