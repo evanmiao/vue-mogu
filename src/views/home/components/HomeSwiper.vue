@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { Swiper, SwiperItem } from '@/components/base/swiper'
+import { Swiper, SwiperItem } from '@/components/base/Swiper'
 
 export default {
   name: 'HomeSwiper',
