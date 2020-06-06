@@ -39,8 +39,7 @@ export default {
 
 <style lang="stylus" scoped>
 .tab-control
-  position sticky
-  top 44px
+  z-index 10
   display flex
   font-size 15px
   line-height 40px

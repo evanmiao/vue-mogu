@@ -16,12 +16,15 @@ export default {
 <style lang="stylus" scoped>
   #nav-bar
     position relative
+    z-index 10
     display flex
     height 44px
     line-height 44px
     text-align center
+
     .left, .right
       width 60px
+
     .center
       flex 1
 </style>
