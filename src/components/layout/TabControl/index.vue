@@ -2,9 +2,9 @@
   <div class="tab-control">
     <div
       class="tab-control-item"
-      v-for="(item, index) in tabs"
+      v-for="(item, index) in getTabs"
       :key="index"
-      :class="{ active: current === index }"
+      :class="{ active: getCurrent === index }"
       @click="itemClick(index)"
     >
       <span>{{ item }}</span>
@@ -21,16 +21,26 @@ export default {
       default() {
         return []
       }
+    },
+    current: {
+      type: Number,
+      default: 0
     }
   },
-  data() {
-    return {
-      current: 0
+  computed: {
+    getTabs() {
+      return this.tabs
+    },
+    getCurrent() {
+      const current = Number(this.current)
+      if (current > (this.getTabs.length - 1)) {
+        return (this.getTabs.length - 1)
+      }
+      return current
     }
   },
   methods: {
     itemClick(index) {
-      this.current = index
       this.$emit('itemClick', index)
     }
   }

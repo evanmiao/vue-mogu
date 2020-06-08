@@ -1,7 +1,7 @@
 <template>
   <div id="home">
     <nav-bar class="nav-bar"><div slot="center">首页</div></nav-bar>
-    <tab-control class="fixed-tab" :tabs="['流行', '新款', '精选']" @itemClick="tabClick" v-show="isTabFixed"></tab-control>
+    <tab-control class="fixed-tab" :tabs="tabs" :current="current" @itemClick="tabClick" v-show="isTabFixed"></tab-control>
     <scroll
       class="content"
       ref="scroll"
@@ -15,7 +15,7 @@
         <home-swiper :banner="banner" ref="homeSwiper"></home-swiper>
         <feature-view :feature="feature"></feature-view>
         <recommend-view></recommend-view>
-        <tab-control :tabs="['流行', '新款', '精选']" @itemClick="tabClick" ref="tabControl"></tab-control>
+        <tab-control :tabs="tabs" :current="current" @itemClick="tabClick" ref="tabControl"></tab-control>
         <goods-list :goods-list="showGoodsList"></goods-list>
       </div>
     </scroll>
@@ -57,6 +57,8 @@ export default {
         'new': { page: 1, list: [] },
         'sell': { page: 1, list: [] }
       },
+      tabs: ['流行', '新款', '精选'],
+      current: 0,
       currentType: 'pop',
       isTabFixed: false,
       tabOffsetTop: 0,
@@ -84,6 +86,9 @@ export default {
     this.tabOffsetTop = this.$refs.tabControl.$el.offsetTop
   },
   methods: {
+    /**
+     * 网络请求
+     */
     getMultiData() {
       getHomeMultiData().then(res => {
         this.banner = res.data.data.banner
@@ -98,7 +103,11 @@ export default {
         this.$refs.scroll.finishPullUp()
       })
     },
+    /**
+     * 事件监听
+     */
     tabClick(e) {
+      this.current = e
       switch (e) {
         case 0:
           this.currentType = 'pop'
