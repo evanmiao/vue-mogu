@@ -25,7 +25,7 @@ export default {
     navs: {
       type: Array,
       default() {
-        return ['商品', '参数', '评论', '推荐']
+        return ['商品', '评价', '详情', '推荐']
       }
     },
     current: {
@@ -53,13 +53,17 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.title
-  display flex
-  font-size 13px
+.detail-nav-bar
+  background-color #fff
 
-  &-item 
-    flex 1
+  .title
+    display flex
+    padding 0 20px
+    font-size 14px
 
-    &.active
-      color $color-active
+    &-item 
+      flex 1
+
+      &.active
+        color $color-active
 </style>
