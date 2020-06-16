@@ -68,7 +68,39 @@ const detailData = options => {
   })
 }
 
+const categoryData = () => {
+  return Mock.mock({
+    code: '0000',
+    msg: '请求成功',
+    data: {
+      'list|16': [{
+        'title|+1': ['正在流行', '上衣', '裤子', '裙子', '内衣', '女鞋', '男友', '包包', '运动', '配饰', '美妆', '个护', '家居', '百货', '母婴', '食品'],
+        'maitKey|+1': ['正在流行', '上衣', '裤子', '裙子', '内衣', '女鞋', '男友', '包包', '运动', '配饰', '美妆', '个护', '家居', '百货', '母婴', '食品'],
+        'miniWallkey|+1': ['正在流行', '上衣', '裤子', '裙子', '内衣', '女鞋', '男友', '包包', '运动', '配饰', '美妆', '个护', '家居', '百货', '母婴', '食品']
+      }]
+    }
+  })
+}
+
+const subcategoryData = options => {
+  let maitKey = getParameter(options.url, 'maitKey')
+  return Mock.mock({
+    code: '0000',
+    msg: '请求成功',
+    data: {
+      'list|6': [{
+        'img': Random.dataImage('100 x 100'),
+        'title': `${maitKey}`,
+        'link': '#'
+      }]
+    }
+  })
+}
+
 Mock.mock(`${baseUrl}/home/multidata`, 'get', homeMultiData)
 Mock.mock(RegExp(`${baseUrl}/home/goodsdata` + '.*'), 'get', homeGoodsData)
 Mock.mock(RegExp(`${baseUrl}/detail` + '.*'), 'get', detailData)
 Mock.mock(`${baseUrl}/recommend`, 'get', homeGoodsData)
+Mock.mock(`${baseUrl}/category`, 'get', categoryData)
+Mock.mock(RegExp(`${baseUrl}/subcategory/detail` + '.*'), 'get', homeGoodsData)
+Mock.mock(RegExp(`${baseUrl}/subcategory` + '.*'), 'get', subcategoryData)
