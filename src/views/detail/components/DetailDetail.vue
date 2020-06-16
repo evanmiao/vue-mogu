@@ -1,6 +1,6 @@
 <template>
   <div class="detail" v-if="Object.keys(detail).length">
-    <div class="desc clearfix">
+    <div class="desc-wrap clearfix">
       <div class="start fl"></div>
       <div class="desc">{{ detail.desc }}</div>
       <div class="end fr"></div>
@@ -27,8 +27,9 @@ export default {
   padding 20px 0
   border-bottom 5px solid #f2f5f8
 
-  .desc
+  .desc-wrap
     padding 0 15px
+    margin-bottom 20px
 
     .start,
     .end

@@ -66,6 +66,12 @@ export default {
       themeTops: []
     }
   },
+  watch: {
+    '$route.query.iid'() {
+      this.getData()
+      this.backTop()
+    }
+  },
   created() {
     this.getData()
     this.getRecommend()

@@ -56,6 +56,10 @@ export default {
 .detail-nav-bar
   background-color #fff
 
+  .back
+    width 20px
+    height 20px
+
   .title
     display flex
     padding 0 20px

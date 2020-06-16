@@ -30,7 +30,7 @@ export default {
     }
   },
   mounted () {
-    setTimeout(this._autoLayout, 20)
+    setTimeout(this._autoLayout, 100)
   },
   updated () {
     this._autoLayout()
