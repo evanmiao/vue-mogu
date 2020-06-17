@@ -14,11 +14,13 @@ export const backTopMixin = {
 export const tabControlMixin = {
   data() {
     return {
+      current: 0,
       currentType: 'pop'
     }
   },
   methods: {
     tabClick(index) {
+      this.current = index
       switch (index) {
         case 0:
           this.currentType = 'pop'

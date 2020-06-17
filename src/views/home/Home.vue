@@ -35,6 +35,7 @@ import FeatureView from './components/FeatureView'
 import RecommendView from './components/RecommendView'
 import GoodsList from './components/GoodsList'
 import { getHomeMultiData, getHomeGoods } from '@/api/home'
+import { backTopMixin, tabControlMixin } from '@/utils/mixin'
 
 export default {
   name: 'Home',
@@ -48,6 +49,7 @@ export default {
     RecommendView,
     GoodsList
   },
+  mixins: [backTopMixin, tabControlMixin],
   data() {
     return {
       banner: [],
@@ -58,11 +60,8 @@ export default {
         'sell': { page: 1, list: [] }
       },
       tabs: ['流行', '新款', '精选'],
-      current: 0,
-      currentType: 'pop',
       isTabFixed: false,
-      tabOffsetTop: 0,
-      showBackTop: false
+      tabOffsetTop: 0
     }
   },
   computed: {
@@ -106,20 +105,6 @@ export default {
     /**
      * 事件监听
      */
-    tabClick(e) {
-      this.current = e
-      switch (e) {
-        case 0:
-          this.currentType = 'pop'
-          break
-        case 1:
-          this.currentType = 'new'
-          break
-        case 2:
-          this.currentType = 'sell'
-          break
-      }
-    },
     contentScroll(position) {
       // 1.决定tabFixed是否显示
       this.isTabFixed = position.y < - this.tabOffsetTop
@@ -128,9 +113,6 @@ export default {
     },
     loadMore() {
       this.getGoods(this.currentType)
-    },
-    backTop() {
-      this.$refs.scroll.scrollTo(0, 0, 300)
     }
   }
 }
